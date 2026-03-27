@@ -1,0 +1,293 @@
+/* تنسيقات عامة */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0a0a0a;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* خلفية الماوس المتحركة */
+#bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* التدرج الجديد: يبدأ بأزرق فاتح وينتهي بالأسود */
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), #0077ff 0%, #0a0a0a 60%);
+    transition: background 0.1s ease;
+    opacity: 0.6; /* تقليل الشفافية ليكون التأثير ناعماً */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* لضمان توسيط العناصر عمودياً */
+    padding: 15px 5%;
+    
+    /* حل مشكلة العرض: استخدم fixed مع تحديد الجهات بدل width 100% */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%); /* لتوسيط الناف بار تماماً */
+    width: 90%; /* يعطيه مساحة ليتنفس من الجوانب */
+    max-width: 1200px;
+    
+    /* اللمسة الفنية: تأثير الزجاج الضبابي */
+    background: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(15px); /* يضيف ضبابية خلف الناف بار */
+    -webkit-backdrop-filter: blur(15px);
+    
+    border: 1px solid rgba(51, 166, 255, 0.2); /* إطار أزرق خفيف جداً */
+    border-radius: 50px; /* زوايا دائرية بالكامل لمظهر عصري */
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* تنسيق الروابط داخل الناف بار لتبدو أرقى */
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap; /* يسمح للروابط بالانتقال إلى سطر جديد إذا كان العرض ضيق */
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+nav ul li a:hover {
+    color: #33a6ff;
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(51, 166, 255, 0.5);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #33a6ff;
+    letter-spacing: 1px;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* 2. تحديث لون النصوص المميزة (Highlight) */
+.highlight { 
+    color: #33a6ff; 
+}
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #0077ff;
+    color:white;
+    border-radius: 25px;
+    text-decoration: none;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover { transform: scale(1.1); box-shadow: 0 0 20px #0077ff; }
+/* سيكشن المشريع*/
+.projects-section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #33a6ff;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(51, 166, 255, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    transition: 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.project-card:hover {
+    border-color: #33a6ff;
+    transform: translateY(-10px);
+    background: rgba(51, 166, 255, 0.1);
+}
+
+.project-link {
+    color: #33a6ff;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+}
+/*سيكشن التواصل*/
+.contact-section {
+    padding: 80px 10%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3); /* خلفية داكنة خفيفة لتمييز القسم */
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.social-icon {
+    font-size: 2rem;
+    color: #33a6ff; /* اللون الأزرق الذي اخترناه */
+    text-decoration: none;
+    transition: 0.4s;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(51, 166, 255, 0.3);
+    border-radius: 50%;
+}
+
+/* تأثير عند تمرير الماوس فوق الأيقونة */
+.social-icon:hover {
+    color: white;
+    background: #0077ff;
+    border-color: #0077ff;
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px #0077ff;
+}
+
+footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/*skils*/
+.skills-section {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.skill-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(51, 166, 255, 0.1);
+    padding: 20px 40px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.4s;
+    min-width: 150px;
+    backdrop-filter: blur(10px);
+}
+
+.skill-box i {
+    font-size: 2.5rem;
+    color: #33a6ff;
+    margin-bottom: 15px;
+}
+
+.skill-box span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* تأثير التوهج عند التمرير */
+.skill-box:hover {
+    background: rgba(51, 166, 255, 0.1);
+    border-color: #33a6ff;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(51, 166, 255, 0.2);
+}
+
+/*عني */
+.about-section {
+    padding: 100px 10%;
+    display: flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.02); /* خلفية خفيفة جداً لتمييز القسم */
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1000px;
+}
+
+.about-text {
+    flex: 2;
+    text-align: right;
+    line-height: 1.8;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.highlight-blue {
+    color: #33a6ff;
+    font-weight: bold;
+}
+
+.about-image {
+    flex: 1;
+    font-size: 8rem;
+    color: rgba(51, 166, 255, 0.2);
+    text-align: center;
+    /* حركة خفيفة للأيقونة */
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* لجعل القسم متجاوب مع الموبايل */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-text { text-align: center; }
+}
